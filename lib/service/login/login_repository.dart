@@ -12,8 +12,7 @@ class LoginRepository extends LoginBase {
   }
 
   @override
-  Future<UserModel> signUp(SignUpModel signUpModel) {
-    // TODO: implement signUp
-    throw UnimplementedError();
+  Future<UserModel> signUp(SignUpModel signUpModel) async {
+    return await _loginService.signUp(signUpModel);
   }
 }

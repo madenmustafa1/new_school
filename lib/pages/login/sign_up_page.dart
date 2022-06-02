@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:new_school/widgets/show_toast.dart';
+import '../../util/router.dart';
 import '../login/login_viewmodel.dart';
 import '../../model/login/sign_up_model.dart';
 import '../../dependency_injection/setup.dart';
@@ -108,16 +110,10 @@ class SignUpPage extends StatelessWidget {
 
     LoginControlModel result = await loginViewModel.signUp(signUpModel);
     if (result.isSucces) {
+      Navigator.pushNamedAndRemoveUntil(
+          context, CRouter.HOME, (route) => false);
     } else {
-      Fluttertoast.showToast(
-        msg: result.message,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      ShowToast.errorToast(result.message);
     }
   }
 }

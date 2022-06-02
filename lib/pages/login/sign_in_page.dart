@@ -1,5 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:new_school/pages/login/login_viewmodel.dart';
+import '../../util/router.dart';
+import '../../model/login/login_model.dart';
+import '../../widgets/show_toast.dart';
+import '../login/login_viewmodel.dart';
 import '../../widgets/calc_sized_box.dart';
 import '../../widgets/custom_rich_text.dart';
 import '../../widgets/login_text_field.dart';
@@ -24,6 +28,8 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    goToHomePage(context);
+
     return Scaffold(
       backgroundColor: ColorUtil.MAIN_COLOR,
       body: Center(
@@ -58,7 +64,7 @@ class SignInPage extends StatelessWidget {
               SimpleButton(
                 buttonText: getIt<Constants>().loginButtonText,
                 onPressed: () {
-                  login();
+                  login(context);
                 },
               ),
               const CalcSizedBox(calc: 80),
@@ -72,7 +78,7 @@ class SignInPage extends StatelessWidget {
                 firstTextIsBold: true,
                 secondTextIsBold: true,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/sign_up');
+                  Navigator.pushNamed(context, CRouter.SIGN_UP);
                 },
               )
             ],
@@ -82,10 +88,29 @@ class SignInPage extends StatelessWidget {
     );
   }
 
-  void login() async {
+  void login(BuildContext context) async {
     String username = usernameController.text;
     String password = passwordController.text;
 
-    var result = await loginViewModel.signIn(username, password);
+    LoginControlModel result = await loginViewModel.signIn(username, password);
+
+    if (result.isSucces) {
+      Navigator.pushNamedAndRemoveUntil(
+          context, CRouter.HOME, (route) => false);
+    } else {
+      ShowToast.errorToast(result.message);
+    }
+  }
+
+  void goToHomePage(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
+    WidgetsBinding.instance?.addPostFrameCallback(
+      (_) {
+        if (user != null) {
+          Navigator.pushNamedAndRemoveUntil(
+              context, CRouter.HOME, (route) => false);
+        }
+      },
+    );
   }
 }

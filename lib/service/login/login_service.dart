@@ -1,9 +1,11 @@
-import 'package:new_school/model/login/sign_up_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:new_school/model/login/user_model.dart';
-import 'package:new_school/service/login/login_base.dart';
+import '/../model/login/user_model.dart';
+import '/../model/login/sign_up_model.dart';
+import '/../service/login/login_base.dart';
 
 class LoginService extends LoginBase {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Future<UserModel> signIn(String email, String password) async {
@@ -26,11 +28,19 @@ class LoginService extends LoginBase {
         email: signUpModel.mail, password: signUpModel.password);
     final User user = result.user!;
 
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
     UserModel userModel = UserModel(
       mail: user.email!,
       userUUID: user.uid,
       emailVerified: user.emailVerified,
     );
+    userModel.asMap();
+
+    users
+        .add(userModel.asMap())
+        .then((value) => print("User Added"))
+        .catchError((error) => print("Failed to add user: $error"));
 
     return userModel;
   }

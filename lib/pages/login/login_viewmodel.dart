@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../model/login/user_model.dart';
 import '../../service/login/login_repository.dart';
@@ -72,7 +73,28 @@ class LoginViewModel {
       );
     }
 
-    return LoginControlModel(message: "", isSucces: true);
+    String errorDesc = "";
+    bool isSuccess = true;
+    UserModel? userModel;
+    try {
+      userModel = await loginRepository.signUp(signUpModel);
+    } on FirebaseAuthException catch (e) {
+      errorDesc = e.code;
+      isSuccess = false;
+      debugPrint(e.message);
+    } catch (e) {
+      debugPrint(e.toString());
+      isSuccess = false;
+      errorDesc = e.toString();
+    }
+
+    return LoginControlModel(
+      message: isSuccess ? constants.loginSuccessMessage : errorDesc,
+      isSucces: isSuccess,
+      userModel: userModel,
+    );
+
+    //return LoginControlModel(message: "", isSucces: true);
   }
 
   bool emailValidation(String email) {

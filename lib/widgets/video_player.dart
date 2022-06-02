@@ -30,7 +30,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
     controller = PodPlayerController(
       playVideoFrom: PlayVideoFrom.youtube(url),
       podPlayerConfig: const PodPlayerConfig(
-        autoPlay: true,
+        autoPlay: false,
         isLooping: false,
         initialVideoQuality: 360,
       ),
