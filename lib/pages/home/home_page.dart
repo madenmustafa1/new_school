@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../widgets/video_player.dart';
 
 // ignore: must_be_immutable
@@ -10,19 +9,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     mediaQuery ??= MediaQuery.of(context);
-    return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: mediaQuery!.size.height / 2,
-              child: const CustomVideoPlayer(),
-            ),
-            returnListViewBuilder()
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: mediaQuery!.size.height / 2,
+            child: const CustomVideoPlayer(),
+          ),
+          returnListViewBuilder(),
+        ],
       ),
     );
   }

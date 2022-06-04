@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../util/router.dart';
 import '../../model/login/login_model.dart';
@@ -28,7 +27,7 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    goToHomePage(context);
+    //goToHomePage(context);
 
     return Scaffold(
       backgroundColor: ColorUtil.MAIN_COLOR,
@@ -102,15 +101,5 @@ class SignInPage extends StatelessWidget {
     }
   }
 
-  void goToHomePage(BuildContext context) {
-    User? user = FirebaseAuth.instance.currentUser;
-    WidgetsBinding.instance?.addPostFrameCallback(
-      (_) {
-        if (user != null) {
-          Navigator.pushNamedAndRemoveUntil(
-              context, CRouter.HOME, (route) => false);
-        }
-      },
-    );
-  }
+
 }

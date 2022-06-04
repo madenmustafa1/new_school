@@ -13,28 +13,10 @@ class UserModel {
     this.emailVerified,
   });
 
- Map<String, dynamic> asMap() => {
-      'nameSurname': nameSurname,
-      'mail': mail,
-      'userUUID': userUUID,
-      'username': username,
-  };
-
-  Map<String, dynamic> toMap() {
-    return {
-      'nameSurname': nameSurname,
-      'mail': mail,
-      'userUUID': userUUID,
-      'username': username,
-    };
-
-    var map = <String, dynamic>{};
-    if (nameSurname != null) {
-      map["nameSurname"] = nameSurname;
-    }
-    map["mail"] = mail;
-    map["username"] = username;
-    map["userUUID"] = userUUID;
-    return map;
-  }
+  Map<String, dynamic> asMap() => {
+        'nameSurname': nameSurname,
+        'mail': mail,
+        'userUUID': userUUID,
+        'username': username,
+      };
 }

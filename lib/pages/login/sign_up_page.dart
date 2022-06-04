@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:new_school/widgets/show_toast.dart';
 import '../../util/router.dart';
 import '../login/login_viewmodel.dart';

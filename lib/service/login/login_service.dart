@@ -37,10 +37,11 @@ class LoginService extends LoginBase {
     );
     userModel.asMap();
 
+    //-> Handle error
     users
         .add(userModel.asMap())
-        .then((value) => print("User Added"))
-        .catchError((error) => print("Failed to add user: $error"));
+        .then((value) => {})
+        .catchError((error) => {});
 
     return userModel;
   }
