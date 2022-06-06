@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:new_school/pages/main_activity/main_activity.dart';
+import 'pages/main_page/main_page.dart';
 import '../dependency_injection/setup.dart';
 import '../pages/login/sign_in_page.dart';
 import '../util/constants.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
-      return const MainActivity();
+      return const MainPage();
     } else {
       return SignInPage();
     }

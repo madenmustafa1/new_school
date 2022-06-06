@@ -9,16 +9,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     mediaQuery ??= MediaQuery.of(context);
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: mediaQuery!.size.height / 2,
-            child: const CustomVideoPlayer(),
-          ),
-          returnListViewBuilder(),
-        ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: mediaQuery!.size.height / 2,
+              child: const CustomVideoPlayer(),
+            ),
+            returnListViewBuilder(),
+          ],
+        ),
       ),
     );
   }
