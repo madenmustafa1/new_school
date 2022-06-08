@@ -9,13 +9,15 @@ class SimpleText extends StatelessWidget {
   final String text;
   final double? optionalTextSize;
   final Color? textColor;
+  final bool? textIsNormal;
 
-  SimpleText({
-    Key? key,
-    required this.text,
-    this.optionalTextSize,
-    this.textColor,
-  }) : super(key: key);
+  SimpleText(
+      {Key? key,
+      required this.text,
+      this.optionalTextSize,
+      this.textColor,
+      this.textIsNormal})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,8 @@ class SimpleText extends StatelessWidget {
       style: GoogleFonts.oswald(
         textStyle: TextStyle(
           fontSize: optionalTextSize ?? textSize,
-          fontWeight: FontWeight.bold,
+          fontWeight:
+              textIsNormal == null ? FontWeight.bold : FontWeight.normal,
           color: textColor ?? ColorUtil.DEFAULT_TEXT_COLOR,
         ),
       ),

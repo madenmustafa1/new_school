@@ -24,32 +24,35 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: page,
-        children: screens,
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        key: _bottomNavigationKey,
-        index: 0,
-        height: 60.0,
-        items: const [
-          Icon(Icons.home, size: 30),
-          Icon(Icons.add, size: 30),
-          Icon(Icons.person, size: 30),
-        ],
-        color: ColorUtil.MAIN_COLOR,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Colors.white,
-        animationCurve: Curves.easeInOut,
-        onTap: (index) {
-          debugPrint(screens[index].toString());
-
-          setState(() {
-            page = index;
-          });
-        },
-        letIndexChange: (index) => true,
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        body: IndexedStack(
+          index: page,
+          children: screens,
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          key: _bottomNavigationKey,
+          index: 0,
+          height: 60.0,
+          items: const [
+            Icon(Icons.home, size: 30),
+            Icon(Icons.add, size: 30),
+            Icon(Icons.person, size: 30),
+          ],
+          color: ColorUtil.MAIN_COLOR,
+          buttonBackgroundColor: Colors.white,
+          backgroundColor: Colors.white,
+          animationCurve: Curves.easeInOut,
+          onTap: (index) {
+            setState(() {
+              page = index;
+            });
+          },
+          letIndexChange: (index) => true,
+        ),
       ),
     );
   }
