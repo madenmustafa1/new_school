@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-
+import '../model/home/post_model.dart';
 import 'accordion_video.dart';
 
+// ignore: must_be_immutable
 class PostListView extends StatelessWidget {
-  const PostListView({
+  PostListView({
     Key? key,
-    required this.urls,
   }) : super(key: key);
 
-  final List<String> urls;
+  final List<String> urls = [
+    // -> Observe Riverpod
+    "https://www.youtube.com/watch?v=fnlJw9H0xAM",
+    "https://www.youtube.com/watch?v=HsgSarKJzn0",
+    "https://www.youtube.com/watch?v=HsgSarKJzn0",
+    "https://www.youtube.com/watch?v=HsgSarKJzn0"
+  ];
+
+  String url =
+      "https://firebasestorage.googleapis.com/v0/b/new-school--app.appspot.com/o/123.png?alt=media&token=7d8d6dba-6a56-43dd-a1bc-8cec59e7c263";
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +35,18 @@ class PostListView extends StatelessWidget {
             child: SlideAnimation(
               verticalOffset: 50.0,
               child: AccordionVideo(
-                description:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                videoUrl: urls[index],
-                videoName: "MM - T.is.B.of.A",
-                nameSurname: "Mustafa Maden",
-                profilePhoto: "",
+                postModel: PostModel(
+                  videoUrl: urls[index],
+                  description:
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                  nameSurname: "Mustafa Maden",
+                  profilePhotoUrl: url,
+                  videoName: "MM - T.is.B.of.A",
+                  uuid: "uuid",
+                  like: index * 2,
+                  comment: [],
+                  subject: "subject",
+                ),
               ),
             ),
           );

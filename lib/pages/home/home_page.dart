@@ -12,17 +12,9 @@ class HomePage extends StatelessWidget {
       appBar: BasicAppBar(title: "Home"),
       body: Column(
         children: [
-          PostListView( urls: urls),
+          PostListView(),
         ],
       ),
-
     );
   }
-
-  var urls = [
-    "https://www.youtube.com/watch?v=fnlJw9H0xAM",
-    "https://www.youtube.com/watch?v=HsgSarKJzn0",
-    "https://www.youtube.com/watch?v=HsgSarKJzn0",
-    "https://www.youtube.com/watch?v=HsgSarKJzn0"
-  ];
 }

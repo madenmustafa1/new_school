@@ -1,7 +1,8 @@
 import 'package:accordion/accordion.dart';
 import 'package:flutter/material.dart';
-import 'package:new_school/util/app_util.dart';
+import 'package:new_school/model/home/post_model.dart';
 import 'package:pod_player/pod_player.dart';
+import '../util/app_util.dart';
 import '../util/color_util.dart';
 import '../widgets/simple_text.dart';
 import '../widgets/widget_util.dart';
@@ -9,19 +10,11 @@ import '../dependency_injection/setup.dart';
 import '../widgets/video_player.dart';
 
 class AccordionVideo extends StatefulWidget {
-  final String nameSurname;
-  final String? profilePhoto;
-  final String videoUrl;
-  final String videoName;
-  final String description;
+  final PostModel postModel;
 
   const AccordionVideo({
     Key? key,
-    required this.videoUrl,
-    required this.description,
-    required this.nameSurname,
-    required this.profilePhoto,
-    required this.videoName,
+    required this.postModel,
   }) : super(key: key);
 
   @override
@@ -41,12 +34,10 @@ class _AccordionVideoState extends State<AccordionVideo> {
     super.dispose();
   }
 
-  String url =
-      "https://firebasestorage.googleapis.com/v0/b/new-school--app.appspot.com/o/123.png?alt=media&token=7d8d6dba-6a56-43dd-a1bc-8cec59e7c263";
-
   @override
   Widget build(BuildContext context) {
-    controller ??= widgetUtil.returnPodPlayerController(widget.videoUrl);
+    controller ??=
+        widgetUtil.returnPodPlayerController(widget.postModel.videoUrl);
 
     mediaQuery ??= MediaQuery.of(context);
     return Container(
@@ -64,11 +55,12 @@ class _AccordionVideoState extends State<AccordionVideo> {
                 right: AppUtil.defaulPadding,
                 widget: CircleAvatar(
                   radius: 25.0,
-                  backgroundImage: NetworkImage(url),
+                  backgroundImage:
+                      NetworkImage(widget.postModel.profilePhotoUrl),
                 ),
               ),
               SimpleText(
-                text: widget.nameSurname,
+                text: widget.postModel.nameSurname,
                 optionalTextSize: 18,
                 textIsNormal: true,
               ),
@@ -78,7 +70,7 @@ class _AccordionVideoState extends State<AccordionVideo> {
               left: AppUtil.defaulPadding,
               right: AppUtil.defaulPadding,
               widget: SimpleText(
-                text: widget.description,
+                text: widget.postModel.description,
                 optionalTextSize: 18,
                 //textIsNormal: true,
               )),
@@ -94,12 +86,12 @@ class _AccordionVideoState extends State<AccordionVideo> {
                 headerBackgroundColor: ColorUtil.MAIN_COLOR,
                 isOpen: false,
                 header: SimpleText(
-                  text: widget.videoName,
+                  text: widget.postModel.videoName,
                   optionalTextSize: 18,
                   textColor: ColorUtil.WHITE,
                 ),
                 content: CustomVideoPlayer(
-                  videoUrl: widget.videoUrl,
+                  videoUrl: widget.postModel.videoUrl,
                   videoController: controller!,
                 ),
               ),
@@ -110,5 +102,3 @@ class _AccordionVideoState extends State<AccordionVideo> {
     );
   }
 }
-
-//Icon(Icons.audiotrack, color: Colors.white)
