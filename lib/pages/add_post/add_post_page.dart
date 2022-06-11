@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_school/widgets/basic_appbar.dart';
+
+import '../../widgets/basic_appbar.dart';
 
 class AddPostPage extends StatelessWidget {
   const AddPostPage({Key? key}) : super(key: key);
@@ -7,9 +8,9 @@ class AddPostPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppBar(title: "Add post"),
+      appBar: BasicAppBar(title: "History"),
       body: const Center(
-        child: Text("Add Post Page"),
+        child: Text("AddPost"),
       ),
     );
   }

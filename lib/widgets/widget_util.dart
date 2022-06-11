@@ -30,19 +30,6 @@ class WidgetUtil {
     );
   }
 
-  PodVideoPlayer returnPodVideoPlayer(String url) {
-    PodPlayerController controller = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(url),
-      podPlayerConfig: const PodPlayerConfig(
-        autoPlay: false,
-        isLooping: false,
-        initialVideoQuality: 360,
-      ),
-    )..initialise();
-
-    return PodVideoPlayer(controller: controller);
-  }
-
   PodPlayerController returnPodPlayerController(String url) {
     PodPlayerController controller = PodPlayerController(
       playVideoFrom: PlayVideoFrom.youtube(url),
@@ -69,7 +56,6 @@ class WidgetUtil {
         left: left ?? 0,
         right: right ?? 0,
       ),
-
       //padding:  EdgeInsets.symmetric(horizontal: padding ?? 20),
       child: widget,
     );

@@ -1,6 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import '/../pages/add_post/add_post_page.dart';
+import '../history/history_page.dart';
 import '/../pages/home/home_page.dart';
 import '/../pages/profile/profile_page.dart';
 import '../../util/color_util.dart';
@@ -18,7 +18,7 @@ class _MainPageState extends State<MainPage> {
 
   final screens = [
     const HomePage(),
-    const AddPostPage(),
+    const HistoryPage(),
     const ProfilePage(),
   ];
 
