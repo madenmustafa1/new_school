@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
           height: 60.0,
           items: const [
             Icon(Icons.home, size: 30),
-            Icon(Icons.add, size: 30),
+            Icon(Icons.music_note, size: 30),
             Icon(Icons.person, size: 30),
           ],
           color: ColorUtil.MAIN_COLOR,

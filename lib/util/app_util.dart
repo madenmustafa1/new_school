@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 class AppUtil {
   //Padding
-  double defaulPadding = 8;
+  static double defaulPadding = 10;
 
   static double getWidth(BuildContext context) =>
       MediaQuery.of(context).size.width;

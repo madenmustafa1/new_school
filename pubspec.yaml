@@ -26,6 +26,7 @@ dependencies:
   fluttertoast: ^8.0.9
   curved_navigation_bar: ^1.0.3
   accordion: ^2.3.0
+  flutter_staggered_animations: ^1.0.0
   
 #scroll_bottom_navigation_bar 4.0.0 
 #modal_bottom_sheet: ^2.0.1

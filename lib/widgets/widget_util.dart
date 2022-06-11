@@ -55,9 +55,22 @@ class WidgetUtil {
     return controller;
   }
 
-  Padding returnPadding({required Widget widget, double? padding}) {
+  Padding returnPadding({
+    required Widget widget,
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
+  }) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: padding ?? 20),
+      padding: EdgeInsets.only(
+        top: top ?? 0,
+        bottom: bottom ?? 0,
+        left: left ?? 0,
+        right: right ?? 0,
+      ),
+
+      //padding:  EdgeInsets.symmetric(horizontal: padding ?? 20),
       child: widget,
     );
   }
