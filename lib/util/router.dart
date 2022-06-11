@@ -19,7 +19,7 @@ class CRouter {
         );
       case '/home':
         return CupertinoPageRoute(
-          builder: (_) => HomePage(),
+          builder: (_) => const HomePage(),
           settings: settings,
         );
     }

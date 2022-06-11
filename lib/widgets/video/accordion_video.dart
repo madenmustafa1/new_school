@@ -1,13 +1,13 @@
 import 'package:accordion/accordion.dart';
 import 'package:flutter/material.dart';
-import 'package:new_school/model/home/post_model.dart';
 import 'package:pod_player/pod_player.dart';
-import '../util/app_util.dart';
-import '../util/color_util.dart';
-import '../widgets/simple_text.dart';
-import '../widgets/widget_util.dart';
-import '../dependency_injection/setup.dart';
-import '../widgets/video_player.dart';
+import '../text_and_button/simple_text.dart';
+import '../widget_util.dart';
+import '../../util/app_util.dart';
+import '../../util/color_util.dart';
+import '../../model/home/post_model.dart';
+import '../../dependency_injection/setup.dart';
+import 'video_player.dart';
 
 class AccordionVideo extends StatefulWidget {
   final PostModel postModel;

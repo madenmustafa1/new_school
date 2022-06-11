@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import '../model/home/post_model.dart';
-import 'accordion_video.dart';
+import 'video/accordion_video.dart';
 
 // ignore: must_be_immutable
 class PostListView extends StatelessWidget {

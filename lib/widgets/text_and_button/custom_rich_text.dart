@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../util/app_util.dart';
-import '../util/color_util.dart';
+import '../../util/app_util.dart';
+import '../../util/color_util.dart';
 
 // ignore: must_be_immutable
 class CustomRichText extends StatelessWidget {
@@ -16,7 +15,7 @@ class CustomRichText extends StatelessWidget {
   final Color? secondTextColor;
   final bool? secondTextIsBold;
 
-    final VoidCallback onPressed;
+  final VoidCallback onPressed;
 
   CustomRichText({
     Key? key,
@@ -44,7 +43,6 @@ class CustomRichText extends StatelessWidget {
             fontSize: firstOptionalTextSize,
           ),
           children: [
-            
             TextSpan(
               text: secondText,
               style: returnStyle(
@@ -61,7 +59,6 @@ class CustomRichText extends StatelessWidget {
 
   //Default
   double textSize = 16;
-
 
   void defaultTextConfig(BuildContext context) {
     textSize = AppUtil.getHeight(context) / 18;

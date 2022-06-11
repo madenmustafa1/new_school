@@ -4,14 +4,14 @@ import '../../model/login/login_model.dart';
 import '../../widgets/show_toast.dart';
 import '../login/login_viewmodel.dart';
 import '../../widgets/calc_sized_box.dart';
-import '../../widgets/custom_rich_text.dart';
-import '../../widgets/login_text_field.dart';
+import '../../widgets/text_and_button/custom_rich_text.dart';
+import '../../widgets/text_and_button/login_text_field.dart';
 import '../../dependency_injection/setup.dart';
 import '../../util/app_util.dart';
 import '../../util/color_util.dart';
 import '../../util/constants.dart';
-import '../../widgets/simple_button.dart';
-import '../../widgets/simple_text.dart';
+import '../../widgets/text_and_button/simple_button.dart';
+import '../../widgets/text_and_button/simple_text.dart';
 
 // ignore: must_be_immutable
 class SignInPage extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../util/app_util.dart';
-import '../util/color_util.dart';
+import '../../util/app_util.dart';
+import '../../util/color_util.dart';
 
 // ignore: must_be_immutable
 class SimpleText extends StatelessWidget {
