@@ -4,22 +4,30 @@ import '../../util/constants.dart';
 import '../../dependency_injection/setup.dart';
 import '../../util/app_util.dart';
 
-class LoginTextField extends StatefulWidget {
+class RichTextField extends StatefulWidget {
   final TextEditingController controller;
   final String hintText;
   final bool? hideText;
-  const LoginTextField({
+  final int? maxlines;
+  final TextInputType? keyboardType;
+  final Widget? suffixIcon;
+  final Color? backgroundColor;
+  const RichTextField({
     Key? key,
     required this.controller,
     required this.hintText,
     this.hideText,
+    this.maxlines,
+    this.keyboardType,
+    this.suffixIcon,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
-  State<LoginTextField> createState() => _LoginTextFieldState();
+  State<RichTextField> createState() => _RichTextFieldState();
 }
 
-class _LoginTextFieldState extends State<LoginTextField> {
+class _RichTextFieldState extends State<RichTextField> {
   Constants constants = getIt<Constants>();
 
   @override
@@ -28,9 +36,13 @@ class _LoginTextFieldState extends State<LoginTextField> {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       child: Container(
         child: TextField(
+          minLines: 1,
+          keyboardType: widget.keyboardType,
+          maxLines: widget.maxlines ?? 1,
           obscureText: widget.hideText ?? false,
           controller: widget.controller,
           decoration: InputDecoration(
+            suffixIcon: widget.suffixIcon,
             border: InputBorder.none,
             labelText: widget.hintText,
             labelStyle: TextStyle(color: ColorUtil.MAIN_COLOR),

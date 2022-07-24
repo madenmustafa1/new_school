@@ -8,6 +8,7 @@ class PostModel {
   final int like;
   final List<String> comment;
   final String subject;
+  final String email;
 
   PostModel({
     required this.videoUrl,
@@ -19,5 +20,19 @@ class PostModel {
     required this.like,
     required this.comment,
     required this.subject,
+    required this.email,
   });
+
+    Map<String, dynamic> asMap() => {
+        'videoUrl': videoUrl,
+        'description': description,
+        'uuid': uuid,
+        'nameSurname': nameSurname,
+        'profilePhotoUrl': profilePhotoUrl,
+        'videoName': videoName,
+        'like': like,
+        'comment': comment,
+        'subject': subject,
+        'email': email,
+      };
 }

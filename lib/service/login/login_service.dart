@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '/../model/login/user_model.dart';
-import '/../model/login/sign_up_model.dart';
-import '/../service/login/login_base.dart';
+import '/model/login/user_model.dart';
+import '/model/login/sign_up_model.dart';
+import '/service/login/login_base.dart';
 
 class LoginService extends LoginBase {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -35,13 +35,7 @@ class LoginService extends LoginBase {
       userUUID: user.uid,
       emailVerified: user.emailVerified,
     );
-    userModel.asMap();
-
-    //-> Handle error
-    users
-        .add(userModel.asMap())
-        .then((value) => {})
-        .catchError((error) => {});
+    users.add(userModel.asMap()).then((value) => {}).catchError((error) => {});
 
     return userModel;
   }

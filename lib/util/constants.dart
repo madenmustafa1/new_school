@@ -17,8 +17,6 @@ class Constants {
   String signUpText1 = "Hesabın var mı?";
   String signUpText2 = " Giriş yap.";
 
-
-
   //#####################################################################
   //ERROR MESSAGES
   String errorMailMessage = "E-posta boş bırakılamaz.";
@@ -28,7 +26,19 @@ class Constants {
   String errorPasswordNotMatchMessage =
       "Şifreler uyuşmuyor, lütfen kontrol ediniz.";
 
- //SUCCESS MESSAGES
- //
- String loginSuccessMessage = "Giriş başarılı.";      
+  //SUCCESS MESSAGES
+  //
+  String loginSuccessMessage = "Giriş başarılı.";
+
+  //Drawer Menu
+  //
+  String signOut = "Çıkış yap";
+
+  //ADD_POST
+  //
+  String addPost = "Gönderi paylaş";
+  String description = "Açıklama";
+
+  String workName = "Parça ismi";
+  String youtubeLink = "Youtube linki";
 }

@@ -1,6 +1,6 @@
-import '../../model/login/sign_up_model.dart';
-import '../../service/login/login_base.dart';
-import '../../model/login/user_model.dart';
+import '/model/login/sign_up_model.dart';
+import '/service/login/login_base.dart';
+import '/model/login/user_model.dart';
 import 'login_service.dart';
 
 class LoginRepository extends LoginBase {

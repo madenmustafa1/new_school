@@ -1,12 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../model/login/user_model.dart';
-import '../../service/login/login_repository.dart';
-import '../../dependency_injection/setup.dart';
-import '../../model/login/login_model.dart';
-import '../../model/login/sign_up_model.dart';
-import '../../util/constants.dart';
+import '/model/login/user_model.dart';
+import '/service/login/login_repository.dart';
+import '/dependency_injection/setup.dart';
+import '/model/login/login_model.dart';
+import '/model/login/sign_up_model.dart';
+import '/util/constants.dart';
 
 class LoginViewModel {
   Constants constants = getIt<Constants>();

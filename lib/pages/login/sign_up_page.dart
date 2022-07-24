@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:new_school/widgets/show_toast.dart';
-import '../../util/router.dart';
+import '/widgets/show_toast.dart';
+import '/util/router.dart';
 import '../login/login_viewmodel.dart';
-import '../../model/login/sign_up_model.dart';
-import '../../dependency_injection/setup.dart';
-import '../../model/login/login_model.dart';
-import '../../util/app_util.dart';
-import '../../util/color_util.dart';
-import '../../util/constants.dart';
-import '../../widgets/calc_sized_box.dart';
-import '../../widgets/text_and_button/custom_rich_text.dart';
-import '../../widgets/text_and_button/login_text_field.dart';
-import '../../widgets/text_and_button/simple_button.dart';
-import '../../widgets/text_and_button/simple_text.dart';
+import '/model/login/sign_up_model.dart';
+import '/dependency_injection/setup.dart';
+import '/model/login/login_model.dart';
+import '/util/app_util.dart';
+import '/util/color_util.dart';
+import '/util/constants.dart';
+import '/widgets/calc_sized_box.dart';
+import '/widgets/text_and_button/custom_rich_text.dart';
+import '/widgets/text_and_button/rich_text_field.dart';
+import '/widgets/text_and_button/simple_button.dart';
+import '/widgets/text_and_button/simple_text.dart';
 
 // ignore: must_be_immutable
 class SignUpPage extends StatelessWidget {
@@ -49,23 +49,23 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               //Mail
-              LoginTextField(
+              RichTextField(
                 controller: mailController,
                 hintText: constants.emailInputHintText,
               ),
               //Username
-              LoginTextField(
+              RichTextField(
                 controller: usernameController,
                 hintText: constants.usernameInputHintText,
               ),
               //Password
-              LoginTextField(
+              RichTextField(
                 controller: passwordController,
                 hintText: constants.passwordInputHintText,
                 hideText: true,
               ),
               //Re-Password
-              LoginTextField(
+              RichTextField(
                 controller: rePasswordController,
                 hintText: constants.rePasswordInputHintText,
                 hideText: true,

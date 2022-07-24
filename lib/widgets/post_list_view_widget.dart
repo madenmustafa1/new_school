@@ -46,6 +46,7 @@ class PostListView extends StatelessWidget {
                   like: index * 2,
                   comment: [],
                   subject: "subject",
+                  email: "email",
                 ),
               ),
             ),

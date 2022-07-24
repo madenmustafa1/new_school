@@ -5,7 +5,7 @@ import '../../widgets/show_toast.dart';
 import '../login/login_viewmodel.dart';
 import '../../widgets/calc_sized_box.dart';
 import '../../widgets/text_and_button/custom_rich_text.dart';
-import '../../widgets/text_and_button/login_text_field.dart';
+import '../../widgets/text_and_button/rich_text_field.dart';
 import '../../dependency_injection/setup.dart';
 import '../../util/app_util.dart';
 import '../../util/color_util.dart';
@@ -48,12 +48,12 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               //E-mail
-              LoginTextField(
+              RichTextField(
                 controller: usernameController,
                 hintText: constants.usernameInputHintText,
               ),
               //Password
-              LoginTextField(
+              RichTextField(
                 controller: passwordController,
                 hintText: constants.passwordInputHintText,
                 hideText: true,
@@ -100,6 +100,4 @@ class SignInPage extends StatelessWidget {
       ShowToast.errorToast(result.message);
     }
   }
-
-
 }
