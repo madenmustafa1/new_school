@@ -26,10 +26,13 @@ class Constants {
   String errorPasswordNotMatchMessage =
       "Şifreler uyuşmuyor, lütfen kontrol ediniz.";
 
+  String errorAddPostMessage =
+      "Hata oluştu. Lütfen daha sonra tekrar deneyiniz.";
+
   //SUCCESS MESSAGES
   //
   String loginSuccessMessage = "Giriş başarılı.";
-
+  String successAddPostMessage = "Gönderiniz yayınlandı";
   //Drawer Menu
   //
   String signOut = "Çıkış yap";

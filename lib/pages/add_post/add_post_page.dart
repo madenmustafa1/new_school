@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:new_school/model/home/post_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-
+import '/riverpod/add_post_provider.dart';
+import '/model/home/post_model.dart';
+import '/widgets/show_toast.dart';
 import '/dependency_injection/setup.dart';
 import '/util/color_util.dart';
 import '/util/constants.dart';
@@ -12,7 +14,7 @@ import '/widgets/text_and_button/simple_button.dart';
 import 'add_post_view_mode.dart';
 
 // ignore: must_be_immutable
-class AddPostPage extends StatelessWidget {
+class AddPostPage extends ConsumerWidget {
   AddPostPage({Key? key}) : super(key: key);
 
   TextEditingController descriptionController = TextEditingController();
@@ -24,7 +26,9 @@ class AddPostPage extends StatelessWidget {
   Constants constants = getIt<Constants>();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final watchLoading = ref.watch(addPostLoadingProvider);
+
     return Scaffold(
       //backgroundColor: ColorUtil.MAIN_COLOR,
       backgroundColor: ColorUtil.GREY_PLATINUM,
@@ -58,13 +62,16 @@ class AddPostPage extends StatelessWidget {
             ),
             const CalcSizedBox(calc: 50),
             //Login Button
-            SimpleButton(
-              buttonText: "Paylaş",
-              //getIt<Constants>().loginButtonText,
-              onPressed: () {
-                //login(context);
-                share();
-              },
+            Container(
+              //visible: watchLoading.name == AddPostEnum.idle.name,
+              child: watchLoading.name == AddPostEnum.idle.name
+                  ? SimpleButton(
+                      buttonText: "Paylaş",
+                      onPressed: () {
+                        share(context, ref);
+                      },
+                    )
+                  : const CircularProgressIndicator(),
             ),
           ],
         ),
@@ -72,7 +79,11 @@ class AddPostPage extends StatelessWidget {
     );
   }
 
-  void share() {
+  void share(BuildContext context, WidgetRef ref) async {
+    ref
+        .read(addPostLoadingProvider.notifier)
+        .setLoadingState(AddPostEnum.loading);
+
     var uuid = const Uuid();
     PostModel postModel = PostModel(
       videoUrl: youtubeLinkController.text,
@@ -87,6 +98,19 @@ class AddPostPage extends StatelessWidget {
       email: "email",
     );
 
-    addPostViewModel.addPost(postModel);
+    var response = await addPostViewModel.addPost(postModel);
+
+    if (response) {
+      ref
+          .read(addPostLoadingProvider.notifier)
+          .setLoadingState(AddPostEnum.idle);
+      ShowToast.successToast(constants.successAddPostMessage);
+      Navigator.maybePop(context);
+    } else {
+      ShowToast.errorToast(constants.errorAddPostMessage);
+      ref
+          .read(addPostLoadingProvider.notifier)
+          .setLoadingState(AddPostEnum.idle);
+    }
   }
 }

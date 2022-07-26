@@ -6,7 +6,7 @@ import '/service/app/app_repository.dart';
 class AddPostViewModel {
   AppRepository appRepository = getIt<AppRepository>();
 
-  void addPost(PostModel postModel) {
-    appRepository.addPost(postModel);
+  Future<bool> addPost(PostModel postModel) async {
+     return await appRepository.addPost(postModel);
   }
 }
