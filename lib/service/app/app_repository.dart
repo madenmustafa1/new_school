@@ -9,4 +9,11 @@ class AppRepository extends AppServiceInterface {
   Future<bool> addPost(PostModel postModel) async {
     return await _appService.addPost(postModel);
   }
+
+  @override
+  Future<List<PostModel>> showUserPostList(String userEmail) async {
+    return await _appService.showUserPostList(userEmail);
+  }
+
+
 }

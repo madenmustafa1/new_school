@@ -35,4 +35,16 @@ class PostModel {
         'subject': subject,
         'email': email,
       };
+
+        PostModel.fromJson(Map<String, dynamic> json)
+      : videoUrl = json['videoUrl'],
+        description = json['description'],
+        uuid = json['uuid'],
+        nameSurname = json['nameSurname'],
+        profilePhotoUrl = json['profilePhotoUrl'],
+        videoName = json['videoName'],
+        like = json['like'],
+        comment =  List.from(json['comment']),
+        subject = json['subject'],
+        email = json['email'];
 }

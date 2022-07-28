@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/widgets/menu_drawer.dart';
-import '/widgets/post_list_view_widget.dart';
+import 'post_list_view_widget.dart';
 import '/widgets/basic_appbar.dart';
 
 class HomePage extends StatelessWidget {

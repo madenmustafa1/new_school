@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import '/pages/home/home_page_viewmodel.dart';
 import '/service/app/app_repository.dart';
 import '/widgets/widget_util.dart';
 import '/pages/add_post/add_post_view_mode.dart';
@@ -15,6 +16,9 @@ void setup() {
   getIt.registerFactory<LoginViewModel>(() => LoginViewModel());
   getIt.registerFactory<LoginRepository>(() => LoginRepository());
 
+    getIt.registerFactory<AppRepository>(() => AppRepository());
+
   getIt.registerFactory<AddPostViewModel>(() => AddPostViewModel());
-  getIt.registerFactory<AppRepository>(() => AppRepository());
+  getIt.registerFactory<HomePageViewModel>(() => HomePageViewModel());
+
 }

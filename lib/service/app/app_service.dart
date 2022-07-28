@@ -21,4 +21,17 @@ class AppService extends AppServiceInterface {
 
     return isSuccess;
   }
+
+  @override
+  Future<List<PostModel>> showUserPostList(String userEmail) async {
+    final data = await firestore.collection("user_posts").get();
+
+    List<PostModel> dataList =
+        data.docs.map((e) => PostModel.fromJson(e.data())).toList();
+    return dataList;
+  }
+
+
+  
+
 }
