@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:new_school/model/login/user_model.dart';
 
 import '/model/home/post_model.dart';
 import 'app_service_interface.dart';
@@ -31,7 +32,19 @@ class AppService extends AppServiceInterface {
     return dataList;
   }
 
+  @override
+  Future<UserModel?> getUserInfo(String userEmail) async {
+    var futureUser = await FirebaseFirestore.instance
+        .collection('users')
+        .limit(1)
+        .where('mail', isEqualTo: userEmail)
+        .get();
 
-  
+    UserModel? userModel;
+    for (var user in futureUser.docs) {
+      userModel = UserModel.fromJson(user.data());
+    }
 
+    return userModel;
+  }
 }

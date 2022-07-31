@@ -1,3 +1,5 @@
+import '/model/login/user_model.dart';
+
 import '/model/home/post_model.dart';
 import 'app_service.dart';
 import 'app_service_interface.dart';
@@ -15,5 +17,8 @@ class AppRepository extends AppServiceInterface {
     return await _appService.showUserPostList(userEmail);
   }
 
-
+  @override
+  Future<UserModel?> getUserInfo(String userEmail) async {
+    return await _appService.getUserInfo(userEmail);
+  }
 }

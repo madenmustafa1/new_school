@@ -2,7 +2,7 @@ class PostModel {
   final String videoUrl;
   final String description;
   final String nameSurname;
-  final String profilePhotoUrl;
+  final String? profilePhotoUrl;
   final String videoName;
   final String uuid;
   final int like;

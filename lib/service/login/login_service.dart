@@ -34,7 +34,11 @@ class LoginService extends LoginBase {
       mail: user.email!,
       userUUID: user.uid,
       emailVerified: user.emailVerified,
+      username: signUpModel.username,
+      nameSurname: signUpModel.username,
+      profileUrl: null,
     );
+
     users.add(userModel.asMap()).then((value) => {}).catchError((error) => {});
 
     return userModel;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_school/widgets/basic_appbar.dart';
-
-import '../../util/router.dart';
+import '/widgets/basic_appbar.dart';
+import '/util/router.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({Key? key}) : super(key: key);

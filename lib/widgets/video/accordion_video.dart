@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:pod_player/pod_player.dart';
 import '../text_and_button/simple_text.dart';
 import '../widget_util.dart';
-import '../../util/app_util.dart';
-import '../../util/color_util.dart';
-import '../../model/home/post_model.dart';
-import '../../dependency_injection/setup.dart';
+import '/util/app_util.dart';
+import '/util/color_util.dart';
+import '/model/home/post_model.dart';
+import '/dependency_injection/setup.dart';
 import 'video_player.dart';
 
 class AccordionVideo extends StatefulWidget {
@@ -55,8 +55,7 @@ class _AccordionVideoState extends State<AccordionVideo> {
                 right: AppUtil.defaulPadding,
                 widget: CircleAvatar(
                   radius: 25.0,
-                  backgroundImage:
-                      NetworkImage(widget.postModel.profilePhotoUrl),
+                  backgroundImage: profilePhoto(),
                 ),
               ),
               SimpleText(
@@ -100,5 +99,10 @@ class _AccordionVideoState extends State<AccordionVideo> {
         ],
       ),
     );
+  }
+
+  ImageProvider<Object>? profilePhoto() {
+    if (widget.postModel.profilePhotoUrl == null) return null;
+    return NetworkImage(widget.postModel.profilePhotoUrl!);
   }
 }

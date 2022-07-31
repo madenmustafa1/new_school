@@ -40,7 +40,8 @@ class PostListView extends ConsumerWidget {
                   videoUrl: watchUserPostModelList[index].videoUrl,
                   description: watchUserPostModelList[index].description,
                   nameSurname: watchUserPostModelList[index].nameSurname,
-                  profilePhotoUrl: url,
+                  profilePhotoUrl:
+                      watchUserPostModelList[index].profilePhotoUrl,
                   videoName: watchUserPostModelList[index].videoName,
                   uuid: watchUserPostModelList[index].uuid,
                   like: index * 2,
